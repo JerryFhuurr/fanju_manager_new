@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".main.login.LoginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="110px"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="450px"
+            android:scaleType="centerInside"
+            android:src="@drawable/pinterest_profile_image" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="40px">
+
+        <EditText
+            android:id="@+id/email_login"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/edit_field_shape"
+            android:drawablePadding="10dp"
+            android:hint="@string/prompt_email"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <EditText
+            android:id="@+id/password_login"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/edit_field_shape"
+            android:drawablePadding="10dp"
+            android:hint="@string/prompt_password"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/login_resetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_reset"
+            android:textColor="@color/SteelBlue"
+            android:layout_gravity="center" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:id="@+id/login_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_register"
+            android:layout_gravity="center" />
+
+        <!-- 测试完删除 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:id="@+id/login_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登出（测试用）"
+            android:layout_gravity="center" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:id="@+id/login_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/r_red"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40px">
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_sign_in_short" />
+    </LinearLayout>
+
+</LinearLayout>

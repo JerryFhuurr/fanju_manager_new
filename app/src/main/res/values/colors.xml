@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="menu_header">#3bfc76</color>
+    <color name="main1">#bfdcee</color>
+    <color name="main2">#dbecf4</color>
+    <color name="LightSkyBlue">#87CEFA</color>
+
+    <color name="Turquoise">#40E0D0</color>
+    <color name="SteelBlue">#4682B4</color>
+    <color name="menu">#9ffff7</color>
+    <color name="Grey">#BEBEBE</color>
+    <color name="DimGrey">#696969</color>
+    <color name="DeleteButton">#e65b67</color>
+
+    <!-- for refresh -->
+    <color name="r_red">#e75a62</color>
+    <color name="r_blue">#51acf0</color>
+    <color name="r_green">#68f894</color>
+
+    <color name="mainTextColor">#1682CA</color>
+</resources>
