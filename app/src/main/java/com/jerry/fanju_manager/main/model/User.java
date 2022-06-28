@@ -7,9 +7,9 @@ public class User {
     private String password;
     private String email;
     private boolean emailVerified;
-    private int phoneNumber;
+    private String phoneNumber;
 
-    public User(String username, String password, String email, int phone){
+    public User(String username, String password, String email, String phone){
         this.username = username;
         this.password = password;
         this.email = email;
@@ -22,7 +22,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.emailVerified = false;
-        this.phoneNumber = 0;
+        this.phoneNumber = "";
     }
 
     public boolean isEmailVerified() {
@@ -41,7 +41,7 @@ public class User {
         this.password = password;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -49,7 +49,7 @@ public class User {
         this.username = username;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
