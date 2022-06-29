@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +35,7 @@ public class LoginFragment extends Fragment {
     private TextView logout;
     private TextView loginInfo;
     private Button loginBtn;
+    private TextView toRegister;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -53,6 +57,7 @@ public class LoginFragment extends Fragment {
         logout = v.findViewById(R.id.login_out);
         loginBtn = v.findViewById(R.id.login_button);
         loginInfo = v.findViewById(R.id.login_error);
+        toRegister = v.findViewById(R.id.login_register);
 
         setupView();
         return v;
@@ -84,6 +89,12 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 loginViewModel.logOut();
+            }
+        });
+        toRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment);
             }
         });
     }
