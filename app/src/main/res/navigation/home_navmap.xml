@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_navmap"
-    app:startDestination="@id/home1Fragment">
+    app:startDestination="@id/nav_home">
 
     <fragment
-        android:id="@+id/home1Fragment"
+        android:id="@+id/nav_home"
         android:name="com.jerry.fanju_manager.main.home.Home1Fragment"
-        android:label="fragment_home1"
-        tools:layout="@layout/fragment_home1" />
+        android:label="主页"
+        tools:layout="@layout/fragment_home1" >
+        <action
+            android:id="@+id/action_home1Fragment_to_placeholder"
+            app:destination="@id/placeholder" />
+    </fragment>
+    <fragment android:id="@+id/placeholder" />
 </navigation>

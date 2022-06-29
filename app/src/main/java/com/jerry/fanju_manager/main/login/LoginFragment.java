@@ -2,6 +2,7 @@ package com.jerry.fanju_manager.main.login;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 
 import com.jerry.fanju_manager.R;
 import com.jerry.fanju_manager.main.handler.DataHandler;
+import com.jerry.fanju_manager.main.home.MainActivity;
 import com.jerry.fanju_manager.main.model.User;
 import com.jerry.fanju_manager.main.viewmodel.LoginViewModel;
 
@@ -122,6 +124,8 @@ public class LoginFragment extends Fragment {
                     Log.i(TAG, "Login Successfully!");
                     loginViewModel.login(lcUser);
                     loginInfo.setText(R.string.login_ok);
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
                 }
 
                 @Override
@@ -147,6 +151,8 @@ public class LoginFragment extends Fragment {
                     Log.i(TAG, "Login Successfully!");
                     loginViewModel.login(lcUser);
                     loginInfo.setText(R.string.login_ok);
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
                 }
 
                 @Override
