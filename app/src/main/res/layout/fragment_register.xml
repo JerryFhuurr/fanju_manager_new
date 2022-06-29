@@ -42,7 +42,7 @@
                     android:background="@drawable/edit_field_shape"
                     android:drawablePadding="10dp"
                     android:hint="@string/register_name"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:singleLine="true" />
 
                 <View
@@ -70,7 +70,7 @@
                     android:background="@drawable/edit_field_shape"
                     android:drawablePadding="10dp"
                     android:hint="@string/register_password1"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textPassword"
                     android:singleLine="true" />
 
                 <View
@@ -84,7 +84,7 @@
                     android:background="@drawable/edit_field_shape"
                     android:drawablePadding="10dp"
                     android:hint="@string/register_password2"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textPassword"
                     android:singleLine="true" />
 
                 <View
@@ -98,7 +98,7 @@
                     android:background="@drawable/edit_field_shape"
                     android:drawablePadding="10dp"
                     android:hint="@string/register_phone"
-                    android:inputType="textEmailAddress"
+                    android:inputType="phone"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -120,6 +120,10 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/r_red" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="6px" />
 
                 <TextView
                     android:id="@+id/register_backLogin"
