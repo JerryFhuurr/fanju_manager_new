@@ -5,15 +5,21 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jerry.fanju_manager.R;
 import com.jerry.fanju_manager.main.handler.DataHandler;
+
+import cn.leancloud.LCUser;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class RegisterFragment extends Fragment {
 
@@ -71,9 +77,9 @@ public class RegisterFragment extends Fragment {
                 String phone = phoneText.getText().toString();
                 boolean isValid = verifyInfo(username, email, password1, password2, phone);
 
-                if (isValid){
+                if (isValid) {
                     registerInfo.setText("");
-
+                    register(username, email, password1, phone, v);
                 }
             }
         });
@@ -107,5 +113,53 @@ public class RegisterFragment extends Fragment {
             return false;
         }
         return false;
+    }
+
+    private void register(String username, String email, String p1, String phone, View v) {
+        LCUser lcUser = new LCUser();
+        lcUser.setUsername(username);
+        lcUser.setPassword(p1);
+        lcUser.setEmail(email);
+        if (!phone.isEmpty()) {
+            lcUser.setMobilePhoneNumber(phone);
+        }
+
+        lcUser.signUpInBackground().subscribe(new Observer<LCUser>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(LCUser lcUser) {
+                Toast.makeText(getContext(), R.string.register_ok, Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d("register error", e.getLocalizedMessage());
+                String error = e.getLocalizedMessage();
+                displayErrorInCN(error);
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+    private void displayErrorInCN(String error){
+        switch (error){
+            case "The email is already taken by another user.":
+                registerInfo.setText(R.string.register_error_username);
+                break;
+            case "Username has already been taken.":
+                registerInfo.setText(R.string.register_error_sameEmail);
+                break;
+            default:
+                registerInfo.setText(error);
+        }
     }
 }

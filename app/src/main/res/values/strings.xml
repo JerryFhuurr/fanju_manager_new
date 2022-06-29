@@ -27,7 +27,9 @@
     <string name="register_error_password2">密码不一致</string>
     <string name="register_error_phone">需输入有效的手机号码</string>
     <string name="register_error_username">该用户名已存在</string>
+    <string name="register_error_sameEmail">邮箱已被注册，请更换一个邮箱</string>
     <string name="register_error_email">请输入正确的邮箱地址，否则会无法找回密码！</string>
+    <string name="register_ok">注册成功，请先验证邮箱后登录</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
