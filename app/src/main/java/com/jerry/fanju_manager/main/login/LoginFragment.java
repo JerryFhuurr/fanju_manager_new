@@ -36,6 +36,7 @@ public class LoginFragment extends Fragment {
     private TextView loginInfo;
     private Button loginBtn;
     private TextView toRegister;
+    private TextView toReset;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -58,6 +59,7 @@ public class LoginFragment extends Fragment {
         loginBtn = v.findViewById(R.id.login_button);
         loginInfo = v.findViewById(R.id.login_error);
         toRegister = v.findViewById(R.id.login_register);
+        toReset = v.findViewById(R.id.login_resetPassword);
 
         setupView();
         return v;
@@ -97,6 +99,13 @@ public class LoginFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment);
             }
         });
+        toReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_resetPasswordFragment);
+            }
+        });
+
     }
 
     private void login(String username, String password, String email) {
