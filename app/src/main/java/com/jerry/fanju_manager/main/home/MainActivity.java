@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.jerry.fanju_manager.R;
 import com.jerry.fanju_manager.main.Apl;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private long exitTime = 0;
     private NavController navController;
     private AppBarConfiguration configuration;
+    private BottomNavigationView bottomNavigationView;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         headerView = navigationView.getHeaderView(0);
         username = headerView.findViewById(R.id.username_menu);
         email = headerView.findViewById(R.id.email_menu);
+        bottomNavigationView = findViewById(R.id.bottom_navbar);
     }
 
     private void setupNavigation() {
@@ -75,6 +78,20 @@ public class MainActivity extends AppCompatActivity {
                 .setOpenableLayout(drawerLayout).build();
         NavigationUI.setupActionBarWithNavController(this, navController, configuration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        setBottomNavigationView();
+    }
+
+    private void setBottomNavigationView() {
+        navController.addOnDestinationChangedListener(((navController1, navDestination, bundle) -> {
+            final int id = navDestination.getId();
+            if (id == R.id.nav_home) {
+                bottomNavigationView.setVisibility(View.VISIBLE);
+            } /*
+            else if (id == R.id.myFragment) {
+                bottomNavigationView.setVisibility(View.VISIBLE);
+            }
+            */
+        }));
     }
 
     private void loadUser(){
