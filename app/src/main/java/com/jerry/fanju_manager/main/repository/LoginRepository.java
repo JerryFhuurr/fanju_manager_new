@@ -21,62 +21,16 @@ public class LoginRepository {
         return instance;
     }
 
-    public void login(String username, String password, String email) {
-        if (username != null && email == null) {
-            LCUser.logIn(username, password).subscribe(new Observer<LCUser>() {
-                @Override
-                public void onSubscribe(Disposable d) {
-
-                }
-
-                @Override
-                public void onNext(LCUser lcUser) {
-                    Log.i(TAG, "Login Successfully!");
-                    user = new User(lcUser.getUsername(), lcUser.getPassword(), lcUser.getEmail(), lcUser.getMobilePhoneNumber());
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    Log.i(TAG, e.toString());
-                }
-
-                @Override
-                public void onComplete() {
-
-                }
-            });
-        } else if (username == null && email != null){
-            LCUser.loginByEmail(email, password).subscribe(new Observer<LCUser>() {
-                @Override
-                public void onSubscribe(Disposable d) {
-
-                }
-
-                @Override
-                public void onNext(LCUser lcUser) {
-                    Log.i(TAG, "Login Successfully!");
-                    user = new User(lcUser.getUsername(), lcUser.getPassword(), lcUser.getEmail(), lcUser.getMobilePhoneNumber());
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    Log.i(TAG, e.toString());
-                }
-
-                @Override
-                public void onComplete() {
-
-                }
-            });
-        }
+    public void login(LCUser lcUser) {
+        user = new User(lcUser.getUsername(), lcUser.getPassword(), lcUser.getEmail(), lcUser.getMobilePhoneNumber());
     }
 
-    public void logOut(){
-        LCUser.logOut();
+    public void logOut() {
         user = null;
     }
 
-    public User getUser(){
+    public User getUser() {
         return user;
     }
+
 }
