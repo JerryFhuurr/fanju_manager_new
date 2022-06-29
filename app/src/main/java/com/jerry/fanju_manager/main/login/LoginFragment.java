@@ -75,7 +75,7 @@ public class LoginFragment extends Fragment {
                         login(username, password, null);
                     }
                 } else {
-                    loginInfo.setText("用户名和密码不能为空！");
+                    loginInfo.setText(R.string.login_error_empty);
                 }
 
             }
@@ -107,7 +107,7 @@ public class LoginFragment extends Fragment {
                 @Override
                 public void onError(Throwable e) {
                     Log.i(TAG, e.toString());
-                    loginInfo.setText(e.getLocalizedMessage());
+                    displayErrorInCN(e.getLocalizedMessage());
                 }
 
                 @Override
@@ -132,7 +132,7 @@ public class LoginFragment extends Fragment {
                 @Override
                 public void onError(Throwable e) {
                     Log.i(TAG, e.toString());
-                    loginInfo.setText(e.getLocalizedMessage());
+                    displayErrorInCN(e.getLocalizedMessage());
                 }
 
                 @Override
@@ -141,8 +141,26 @@ public class LoginFragment extends Fragment {
                 }
             });
         } else if (username == null && email == null) {
-            loginInfo.setText("用户名和密码不能为空！");
+            loginInfo.setText(R.string.login_error_empty);
         }
     }
 
+    private void displayErrorInCN(String message) {
+        switch (message) {
+            case "Could not find user.":
+                loginInfo.setText(R.string.login_error_email2);
+                break;
+            case "The username and password mismatch.":
+                loginInfo.setText(R.string.login_error_password);
+                break;
+            case "Email address isn't verified.":
+                loginInfo.setText(R.string.login_error_email);
+                break;
+            case "You have entered incorrect passwords for too many times. Please try later or reset your password.":
+                loginInfo.setText(R.string.login_error_password2);
+                break;
+            default:
+                loginInfo.setText(message);
+        }
+    }
 }

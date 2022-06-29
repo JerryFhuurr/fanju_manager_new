@@ -8,9 +8,9 @@
     <string name="login_ok">登录成功！</string>
     <string name="login_error_password">密码或用户名错误</string>
     <string name="login_error_email">该邮箱未验证，请先验证邮箱后再登录</string>
-    <string name="login_error_email2">此用户名所使用的邮箱未验证，请先验证邮箱后再登录</string>
-    <string name="login_error_email3">用户名或邮箱不存在</string>
+    <string name="login_error_email2">用户名或邮箱不存在</string>
     <string name="login_error_password2">密码错误次数太多，请稍后再试或重置密码</string>
+    <string name="login_error_empty">用户名和密码不能为空！</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
