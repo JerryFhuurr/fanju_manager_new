@@ -112,12 +112,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, configuration) || super.onSupportNavigateUp();
     }
 
-    public void logout(View view){
-        LCUser.logOut();
-        currentUser = null;
-        checkUser();
-    }
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {

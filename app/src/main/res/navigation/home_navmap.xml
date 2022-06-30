@@ -11,8 +11,16 @@
         android:label="主页"
         tools:layout="@layout/fragment_home1" >
         <action
-            android:id="@+id/action_home1Fragment_to_placeholder"
-            app:destination="@id/placeholder" />
+            android:id="@+id/action_nav_home_to_logoutFragment"
+            app:destination="@id/nav_logout" />
     </fragment>
-    <fragment android:id="@+id/placeholder" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.jerry.fanju_manager.main.home.LogoutFragment"
+        android:label="登出"
+        tools:layout="@layout/fragment_logout" >
+        <action
+            android:id="@+id/action_logoutFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>
