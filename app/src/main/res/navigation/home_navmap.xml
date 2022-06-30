@@ -13,14 +13,25 @@
         <action
             android:id="@+id/action_nav_home_to_logoutFragment"
             app:destination="@id/nav_logout" />
+        <action
+            android:id="@+id/action_nav_home_to_accountFragment"
+            app:destination="@id/nav_account" />
     </fragment>
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.jerry.fanju_manager.main.home.LogoutFragment"
+        android:name="com.jerry.fanju_manager.main.home.account.LogoutFragment"
         android:label="登出"
         tools:layout="@layout/fragment_logout" >
         <action
             android:id="@+id/action_logoutFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.jerry.fanju_manager.main.home.account.AccountFragment"
+        android:label="AccountFragment" >
+        <action
+            android:id="@+id/action_accountFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
 </navigation>

@@ -54,6 +54,16 @@
     <string name="bottom_menu1">番剧</string>
     <string name="bottom_menu2">剧场版</string>
 
+    <!-- account setting -->
+    <string name="accountSet_title">账户设置</string>
+    <string name="accountSet_username">用户名：</string>
+    <string name="accountSet_email">邮箱（不可修改）：</string>
+    <string name="accountSet_password">密码：</string>
+    <string name="accountSet_password2">重置密码</string>
+    <string name="accountSet_phone">电话号码：</string>
+    <string name="accountSet_edit">编辑信息</string>
+    <string name="accountSet_save">保存</string>
+
     <!-- logout -->
     <string name="logout_label">正在登出……</string>
     <string name="logout_title">确认登出</string>
