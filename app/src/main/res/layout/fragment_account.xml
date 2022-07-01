@@ -5,142 +5,159 @@
     android:layout_height="match_parent"
     tools:context=".main.home.account.AccountFragment">
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="10px"
-            android:paddingVertical="15px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/accountSet_title"
-                android:textSize="45sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="20px"
-            android:paddingVertical="10px">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:paddingHorizontal="10px"
                 android:paddingVertical="15px">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/accountSet_email"
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/accountSet_email"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/edit_field_shape"
-                    android:drawablePadding="10dp"
-                    android:enabled="false"
-                    android:inputType="textEmailAddress"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/accountSet_title"
+                    android:textSize="45sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingVertical="15px">
+                android:paddingHorizontal="20px"
+                android:paddingVertical="10px">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/accountSet_username"
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/accountSet_username"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/edit_field_shape"
-                    android:drawablePadding="10dp"
-                    android:enabled="false"
-                    android:inputType="text"
-                    android:singleLine="true" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="15px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accountSet_email"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/accountSet_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edit_field_shape"
+                        android:drawablePadding="10dp"
+                        android:enabled="false"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="15px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accountSet_username"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/accountSet_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edit_field_shape"
+                        android:drawablePadding="10dp"
+                        android:enabled="false"
+                        android:inputType="text"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="15px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accountSet_phone"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/accountSet_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edit_field_shape"
+                        android:drawablePadding="10dp"
+                        android:enabled="false"
+                        android:inputType="phone"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/accountSet_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/r_red"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="15px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accountSet_password"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/accountSet_resetPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accountSet_password2" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:orientation="vertical"
-                android:paddingVertical="15px">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/accountSet_phone"
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/accountSet_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/edit_field_shape"
-                    android:drawablePadding="10dp"
-                    android:enabled="false"
-                    android:inputType="phone"
-                    android:singleLine="true" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="15px">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/accountSet_password"
-                    android:textSize="20sp" />
+                android:paddingHorizontal="25px"
+                android:paddingTop="200px">
 
                 <Button
-                    android:id="@+id/accountSet_resetPass"
+                    android:id="@+id/accountSet_save"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/accountSet_password2" />
+                    android:text="@string/accountSet_save"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/accountSet_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accountSet_edit" />
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="vertical"
-            android:paddingHorizontal="25px"
-            android:paddingTop="450px">
-
-            <Button
-                android:id="@+id/accountSet_save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/accountSet_save"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/accountSet_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/accountSet_edit" />
-        </LinearLayout>
-    </LinearLayout>
-
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

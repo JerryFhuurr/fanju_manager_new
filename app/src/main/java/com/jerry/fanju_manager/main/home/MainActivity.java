@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -11,6 +13,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -22,6 +26,7 @@ import com.jerry.fanju_manager.R;
 import com.jerry.fanju_manager.main.Apl;
 import com.jerry.fanju_manager.main.handler.ActivityManager;
 import com.jerry.fanju_manager.main.login.LoginActivity;
+import com.jerry.fanju_manager.main.viewmodel.LoginViewModel;
 
 import cn.leancloud.LCUser;
 
@@ -39,22 +44,56 @@ public class MainActivity extends AppCompatActivity {
     private TextView username;
     private TextView email;
 
+    private LoginViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        currentUser = LCUser.getCurrentUser();
 
+        currentUser = LCUser.getCurrentUser();
         ActivityManager.getInstance().addActivity(this);
         checkUser();
         initView();
-        loadUser();
+        checkUserSessionToken();
+        loadUserTimer();
         setupNavigation();
     }
 
-    private void checkUser(){
-        if (currentUser == null){
-            Toast.makeText(this, R.string.login_error, Toast.LENGTH_SHORT).show();
+    private void checkUserSessionToken() {
+        viewModel.getUserToken().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (!aBoolean){
+                    Log.d("observe change", "changed");
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
+    }
+
+    private void loadUserTimer() {
+        if (currentUser != null) {
+            Handler loadHandler = new Handler();
+            Runnable loadRun = new Runnable() {
+                @Override
+                public void run() {
+                    loadUser();
+                    viewModel.getUserToken().setValue(checkUserToken());
+                    //Log.d("get token", String.valueOf(checkUserToken()));
+                    loadHandler.postDelayed(this, 2000);
+                }
+            };
+            loadHandler.removeCallbacks(loadRun);
+            loadHandler.postDelayed(loadRun, 500);
+        }
+    }
+
+    private void checkUser() {
+        if (currentUser == null) {
+            //Toast.makeText(this, R.string.login_error, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
@@ -68,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         username = headerView.findViewById(R.id.username_menu);
         email = headerView.findViewById(R.id.email_menu);
         bottomNavigationView = findViewById(R.id.bottom_navbar);
+        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
     }
 
     private void setupNavigation() {
@@ -94,9 +134,14 @@ public class MainActivity extends AppCompatActivity {
         }));
     }
 
-    private void loadUser(){
+    private void loadUser() {
+        currentUser = LCUser.getCurrentUser();
         username.setText(currentUser.getUsername());
         email.setText(currentUser.getEmail());
+    }
+
+    private boolean checkUserToken() { //检查密码是否重置
+        return LCUser.getCurrentUser().isAuthenticated();
     }
 
     @Override

@@ -54,7 +54,7 @@ public class ResetPasswordFragment extends Fragment {
         return v;
     }
 
-    private void setUpView(){
+    private void setUpView() {
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,11 +94,11 @@ public class ResetPasswordFragment extends Fragment {
 
     }
 
-    private void timer(){
-        new CountDownTimer(countTimer, 1000){
+    private void timer() {
+        new CountDownTimer(countTimer, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                if (sendBtn != null){
+                if (sendBtn != null) {
                     sendBtn.setClickable(false);
                     sendBtn.setEnabled(false);
                     resetInfo.setText(getText(R.string.reset_timerLabel) + String.valueOf(millisUntilFinished / 1000));
@@ -107,7 +107,7 @@ public class ResetPasswordFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                if (sendBtn != null){
+                if (sendBtn != null) {
                     sendBtn.setClickable(true);
                     sendBtn.setEnabled(true);
                     resetInfo.setText("");

@@ -63,6 +63,10 @@
     <string name="accountSet_phone">电话号码：</string>
     <string name="accountSet_edit">编辑信息</string>
     <string name="accountSet_save">保存</string>
+    <string name="accountSet_ok">账户信息修改成功</string>
+    <string name="accountSet_error_username">用户名不能为空</string>
+    <string name="accountSet_resetLabel">再次登录需使用新密码登录</string>
+    <string name="accountSet_error_reset">邮件发送次数过多，请稍后再试</string>
 
     <!-- logout -->
     <string name="logout_label">正在登出……</string>
