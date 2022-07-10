@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.jerry.fanju_manager.main.home.Home1Fragment"
+        android:name="com.jerry.fanju_manager.main.home.fanju.ui.Home1Fragment"
         android:label="主页"
         tools:layout="@layout/fragment_home1" >
         <action

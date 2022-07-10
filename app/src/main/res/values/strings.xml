@@ -73,7 +73,19 @@
     <string name="logout_title">确认登出</string>
     <string name="logout_content">确定要登出吗？登出后需要重新登录</string>
 
+    <!-- fanju home -->
+    <string name="fanju_tab1">新番追番</string>
+    <string name="fanju_tab2">旧番补番</string>
+    <string name="fanju_tab3">已看完</string>
+
+    <!-- movie home -->
+    <string name="movie_tab1">已看</string>
+    <string name="movie_home">未看</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home_fanju">Home_Fanju</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
